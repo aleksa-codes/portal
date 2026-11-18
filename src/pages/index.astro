@@ -13,8 +13,10 @@ const title = "Portal | Multiverse Generator"
 
   <!-- MAIN CONSOLE -->
   <main class="gadget-console" id="main-console">
-    <div class="screw screw-tl"></div><div class="screw screw-tr"></div>
-    <div class="screw screw-bl"></div><div class="screw screw-br"></div>
+    <div class="screw screw-tl"></div>
+    <div class="screw screw-tr"></div>
+    <div class="screw screw-bl"></div>
+    <div class="screw screw-br"></div>
 
     <header>
       <h1 class="app-title">Portal</h1>
@@ -27,7 +29,9 @@ const title = "Portal | Multiverse Generator"
     </button>
 
     <div class="input-group">
-      <label class="input-label" for="path-input">Target Coordinates:</label>
+      <label class="input-label" for="path-input">
+        Target Coordinates:
+      </label>
       <div class="coordinate-screen">
         <span class="coord-prefix">DIM://</span>
         <input
@@ -40,22 +44,26 @@ const title = "Portal | Multiverse Generator"
     </div>
 
     <div class="sticky-note">
-      <b>Aw geez, listen...</b><br />
-      You can type a path right into the target coordinates here, or put <code
-        >/plumbus</code
-      > at the end of the native browser address bar up there. Without an extension, we default to HTML. Or whatever, try <code
-        >/morty.json</code
-      > or <code>morty.js</code>.
+      <b>Aw geez, listen...</b>
+      <br />
+      You can type a path right into the target coordinates here, or put{" "}
+      <code>/plumbus</code> at the end of the native browser address bar up
+      there. Without an extension, we default to HTML. Or whatever, try{" "}
+      <code>/morty.json</code> or <code>morty.js</code>.
     </div>
 
     <div class="portal-btn-container">
-      <button class="portal-btn" id="shootPortalBtn">Shoot Portal</button>
+      <button class="portal-btn" id="shootPortalBtn">
+        Shoot Portal
+      </button>
     </div>
   </main>
 
   <!-- SIMULATION UI -->
   <div class="simulation-container" id="sim-container">
-    <div class="loading-text" id="loading-text">SYNTHESIZING MATTER...</div>
+    <div class="loading-text" id="loading-text">
+      SYNTHESIZING MATTER...
+    </div>
   </div>
 
   <!-- BATTERY BAY MODAL -->
@@ -63,52 +71,51 @@ const title = "Portal | Multiverse Generator"
     <div class="battery-bay">
       <div class="bay-header">
         <h2 class="bay-title">CORE BATTERY BAY</h2>
-        <button class="close-btn" id="closeModalBtn">X</button>
+        <button class="close-btn" id="closeModalBtn">
+          X
+        </button>
       </div>
 
       <div class="battery-slots-container">
-        {
-          ["openai", "gemini", "claude"].map((provider) => (
-            <div
-              class={`battery-slot slot-${provider}`}
-              id={`slot-${provider}`}
-            >
-              <div class="slot-info">
-                <div class="slot-provider" style="text-transform: capitalize">
-                  {provider}
-                </div>
-                <div class="slot-model">
-                  {provider === "openai"
-                    ? "gpt-5.4-nano"
-                    : provider === "gemini"
-                      ? "gemini-3.1-flash-lite"
-                      : "claude-4.5-haiku"}
-                </div>
+        {["openai", "gemini", "claude"].map((provider) => (
+          <div class={`battery-slot slot-${provider}`} id={`slot-${provider}`}>
+            <div class="slot-info">
+              <div class="slot-provider" style="text-transform: capitalize">
+                {provider}
               </div>
-              <input
-                type="password"
-                class="slot-input"
-                id={`key-${provider}`}
-                placeholder="Enter Key..."
-              />
-              <div class="slot-actions">
-                <button class="route-btn" data-provider={provider}>
-                  ROUTE
-                </button>
-                <button class="slot-btn" data-provider={provider}>
-                  SLAM
-                </button>
+              <div class="slot-model">
+                {provider === "openai"
+                  ? "gpt-5.4-nano"
+                  : provider === "gemini"
+                    ? "gemini-3.1-flash-lite"
+                    : "claude-4.5-haiku"}
               </div>
             </div>
-          ))
-        }
+            <input
+              type="password"
+              class="slot-input"
+              id={`key-${provider}`}
+              placeholder="Enter Key..."
+            />
+            <div class="slot-actions">
+              <button class="route-btn" data-provider={provider}>
+                ROUTE
+              </button>
+              <button class="slot-btn" data-provider={provider}>
+                SLAM
+              </button>
+            </div>
+          </div>
+        ))}
       </div>
 
       <div class="rick-note">
-        <b>Look at me, Morty!</b> Read the duct tape.<br />
-        I'm not sending your precious API keys to the Galactic Federation. They stay
-        right here securely on the server via HTTP-only cookies and are piped straight
-        to the LLMs. Stop whining about security and route the power!
+        <b>Look at me, Morty!</b> Read the duct tape.
+        <br />
+        I'm not sending your precious API keys to the Galactic Federation. They
+        stay right here securely on the server via HTTP-only cookies and are
+        piped straight to the LLMs. Stop whining about security and route the
+        power!
       </div>
     </div>
   </div>
@@ -122,9 +129,7 @@ const title = "Portal | Multiverse Generator"
     title="Source Code Dimension"
   >
     <svg viewBox="0 0 24 24">
-      <path
-        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-      ></path>
+      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
     </svg>
   </a>
 
